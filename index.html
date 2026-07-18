@@ -1,0 +1,185 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="index.js">
+        
+    </script>
+</body>
+</html>
+=======
+>>>>>>> local-work
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Bank</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="landingPage">
+      <div class="landingContainer">
+        <h1>Simple Bank</h1>
+        <p>Secure • Fast • Online Banking System</p>
+        <div class="landingButtons">
+          <button onclick="openRegister()">Create Account</button>
+          <button onclick="openLogin()">Login</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="registerPage" style="display: none">
+      <div class="formContainer">
+        <div class="formHeader">
+          <p class="eyebrow">Create Account</p>
+          <h2>Simple Bank</h2>
+          <p>Open your account with a modern banking flow.</p>
+        </div>
+
+        <div class="inputBox">
+          <label>Account Number</label>
+          <input type="text" id="newAccNo" placeholder="Enter account number" />
+          <p id="accountError" class="error"></p>
+        </div>
+
+        <div class="inputBox">
+          <label>Full Name</label>
+          <input type="text" id="newName" placeholder="Enter full name" />
+          <p id="nameError" class="error"></p>
+        </div>
+
+        <div class="inputBox">
+          <label>PIN</label>
+          <input type="password" id="newPin" placeholder="Enter PIN" />
+          <p id="pinError" class="error"></p>
+        </div>
+
+        <button class="mainButton" onclick="createAccount()">Create Account</button>
+        <p id="registerMessage" class="success"></p>
+
+        <div class="bottomText">
+          Already have an account? <span onclick="openLogin()">Login</span>
+        </div>
+        <button class="backButton" onclick="goHome()">← Back to Home</button>
+      </div>
+    </div>
+
+    <div id="loginPage" style="display: none">
+      <div class="formContainer">
+        <div class="formHeader">
+          <p class="eyebrow">Login</p>
+          <h2>Simple Bank</h2>
+          <p>Access your account and manage your balance.</p>
+        </div>
+
+        <div class="inputBox">
+          <label>Account Number</label>
+          <input type="text" id="loginAccNo" placeholder="Enter account number" />
+          <p id="loginAccountError" class="error"></p>
+        </div>
+
+        <div class="inputBox">
+          <label>PIN</label>
+          <input type="password" id="loginPin" placeholder="Enter PIN" />
+          <p id="loginPinError" class="error"></p>
+        </div>
+
+        <button class="mainButton loginButton" onclick="login()">Login</button>
+        <p id="loginMessage" class="success"></p>
+
+        <div class="bottomText">
+          Don't have an account? <span onclick="openRegister()">Create Account</span>
+        </div>
+        <button class="backButton" onclick="goHome()">← Back to Home</button>
+      </div>
+    </div>
+
+    <div id="dashboard" style="display: none">
+      <div class="dashboardContainer dashboardCenter">
+        <div class="dashboardHeader">
+          <div>
+            <p class="eyebrow">Online Banking System</p>
+            <h1>Simple Bank</h1>
+            <p class="subtitle">A clean, compact dashboard for your account.</p>
+          </div>
+          <button class="logoutButton" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="dashboardSummary">
+          <div class="summaryCard">
+            <span class="label">Account</span>
+            <h2 id="welcomeName"></h2>
+          </div>
+          <div class="summaryCard">
+            <span class="label">Balance</span>
+            <h2>Rs. <span id="currentBalance">0</span></h2>
+          </div>
+        </div>
+
+        <div class="dashboardMenu dashboardMenuCenter">
+          <button onclick="openDashboardSection('deposit')">Deposit</button>
+          <button onclick="openDashboardSection('withdraw')">Withdraw</button>
+          <button onclick="openDashboardSection('transfer')">Transfer (EFT)</button>
+        </div>
+
+        <div id="dashboardMain" class="dashboardMain">
+          <p class="dashboardIntro">Choose an option to manage your Simple Bank account.</p>
+        </div>
+
+        <div id="depositSection" class="dashboardSection" style="display: none">
+          <h2>Deposit Funds</h2>
+          <div class="inputBox">
+            <label>Amount</label>
+            <input type="number" id="depositAmount" placeholder="Enter amount" />
+            <p id="depositError" class="error"></p>
+          </div>
+          <button class="mainButton" onclick="deposit()">Deposit</button>
+          <p id="depositMessage" class="success"></p>
+          <button class="secondaryButton" onclick="openDashboardSection('main')">Back to Dashboard</button>
+        </div>
+
+        <div id="withdrawSection" class="dashboardSection" style="display: none">
+          <h2>Withdraw Funds</h2>
+          <div class="inputBox">
+            <label>Amount</label>
+            <input type="number" id="withdrawAmount" placeholder="Enter amount" />
+            <p id="withdrawError" class="error"></p>
+          </div>
+          <button class="mainButton" onclick="withdraw()">Withdraw</button>
+          <p id="withdrawMessage" class="success"></p>
+          <button class="secondaryButton" onclick="openDashboardSection('main')">Back to Dashboard</button>
+        </div>
+
+        <div id="transferSection" class="dashboardSection" style="display: none">
+          <h2>Transfer Funds</h2>
+          <div class="inputBox">
+            <label>Receiver Account</label>
+            <input type="text" id="receiverAccount" placeholder="Enter account number" />
+          </div>
+          <div class="inputBox">
+            <label>Amount</label>
+            <input type="number" id="transferAmount" placeholder="Enter amount" />
+            <p id="transferError" class="error"></p>
+          </div>
+          <button class="mainButton" onclick="transferMoney()">Transfer</button>
+          <p id="transferMessage" class="success"></p>
+          <button class="secondaryButton" onclick="openDashboardSection('main')">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+<<<<<<< HEAD
+=======
+>>>>>>> 6f51e23 (updated ui)
+>>>>>>> local-work
